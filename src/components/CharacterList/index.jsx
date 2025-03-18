@@ -8,6 +8,8 @@ const CharacterList = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [page, setPage] = useState(1);
+  // Para saber el total de paginas
+  const [totalPages, setTotalPages] = useState(0);
 
   useEffect(() => {
     const fetchApiRick = async () => {
@@ -21,6 +23,7 @@ const CharacterList = () => {
         }
         const data = await response.json();
         setCharacters(data.results);
+        setTotalPages(data.info.pages);
       } catch (error) {
         setError(error.message);
       } finally {
@@ -40,8 +43,8 @@ const CharacterList = () => {
   }
   return (
     <>
-      <Pagination page={page} setPage={setPage} />
-      <div className="p-5 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <Pagination page={page} setPage={setPage} totalPages={totalPages} />
+      <div className="min-h-screen p-5 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 items-start">
         {characters.map((character) => {
           return (
             <div key={`character-${character.id}`}>
@@ -50,7 +53,7 @@ const CharacterList = () => {
           );
         })}
       </div>
-      <Pagination page={page} setPage={setPage} />
+      <Pagination page={page} setPage={setPage} totalPages={totalPages} />
     </>
   );
 };

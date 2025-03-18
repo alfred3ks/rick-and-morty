@@ -1,9 +1,10 @@
 import CharacterList from './components/CharacterList';
+import Header from './components/Header';
 
 const App = () => {
   return (
     <div className="bg-cyan-500 text-white">
-      <h1 className="text-center py-4 text-5xl">Rick and Morty</h1>
+      <Header />
       <CharacterList />
     </div>
   );

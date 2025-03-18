@@ -1,4 +1,4 @@
-const Pagination = ({ page, setPage }) => {
+const Pagination = ({ page, setPage, totalPages }) => {
   const handleChangePage = (newPage) => {
     setPage(newPage);
   };
@@ -20,12 +20,14 @@ const Pagination = ({ page, setPage }) => {
         <p className="text-lg font-semibold">Page {page}</p>
 
         {/* Botón de la página siguiente */}
-        <button
-          onClick={() => handleChangePage(page + 1)}
-          className="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 cursor-pointer"
-        >
-          Next
-        </button>
+        {page < totalPages && (
+          <button
+            onClick={() => handleChangePage(page + 1)}
+            className="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 cursor-pointer"
+          >
+            Next
+          </button>
+        )}
       </div>
     </div>
   );
