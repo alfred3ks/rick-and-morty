@@ -1,13 +1,23 @@
+import { Navigate, Route, Routes } from 'react-router';
 import CharacterList from './components/CharacterList';
-import Footer from './components/Footer';
-import Header from './components/Header';
+import Layout from './components/Layout';
+import NotFound from './components/NotFount';
 
 const App = () => {
   return (
     <div className="bg-cyan-500 text-white">
-      <Header />
-      <CharacterList />
-      <Footer />
+      <Routes>
+        <Route path="/" element={<Navigate to="/characters" />} />
+        <Route path="/characters" element={<Layout />}>
+          <Route index element={<CharacterList />} />
+        </Route>
+
+        {/* Ruta 404 con layout */}
+        <Route path="*" element={<Navigate to="/404" />} />
+        <Route path="/404" element={<Layout />}>
+          <Route index element={<NotFound />} />
+        </Route>
+      </Routes>
     </div>
   );
 };
