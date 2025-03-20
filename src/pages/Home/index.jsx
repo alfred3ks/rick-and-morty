@@ -11,7 +11,7 @@ const Home = () => {
         absurd situations.
       </p>
       <img
-        src="/public/rick-and-morty-home.webp"
+        src="/rick-and-morty-home.webp"
         alt="Rick and Morty"
         className="w-full max-w-xs sm:max-w-md md:max-w-lg lg:max-w-2xl rounded-lg shadow-lg mb-6"
       />
