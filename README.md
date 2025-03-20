@@ -15,6 +15,7 @@ Esta es una aplicación basada en la API de Rick and Morty que permite a los usu
 
 - React.js
 - Tailwind CSS
+- CSS3
 - API de Rick and Morty (https://rickandmortyapi.com/)
 
 ### Instalación y uso

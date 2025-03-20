@@ -10,7 +10,7 @@ const Pagination = ({ page, setPage, totalPages }) => {
         {page > 1 && (
           <button
             onClick={() => handleChangePage(page - 1)}
-            className="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 cursor-pointer"
+            className="px-6 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 cursor-pointer transition"
           >
             Prev
           </button>
@@ -23,7 +23,7 @@ const Pagination = ({ page, setPage, totalPages }) => {
         {page < totalPages && (
           <button
             onClick={() => handleChangePage(page + 1)}
-            className="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 cursor-pointer"
+            className="px-6 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 cursor-pointer transition"
           >
             Next
           </button>

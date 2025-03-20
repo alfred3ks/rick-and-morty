@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import Character from '../Character';
-import Spinner from '../Spinner';
-import Pagination from '../Pagination';
+import Character from '../../components/Character';
+import Pagination from '../../components/Pagination';
+import Spinner from '../../components/Spinner';
 
 const CharacterList = () => {
   const [characters, setCharacters] = useState([]);
@@ -39,19 +39,18 @@ const CharacterList = () => {
   }
 
   if (error) {
-    return <div>Error: {error}</div>;
+    return <div className="text-center text-red-500">Error: {error}</div>;
   }
+
   return (
     <>
       <Pagination page={page} setPage={setPage} totalPages={totalPages} />
-      <div className="min-h-screen p-5 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 items-start">
-        {characters.map((character) => {
-          return (
-            <div key={`character-${character.id}`}>
-              <Character character={character} />
-            </div>
-          );
-        })}
+      <div className="min-h-screen p-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 items-start">
+        {characters.map((character) => (
+          <div key={`character-${character.id}`}>
+            <Character character={character} />
+          </div>
+        ))}
       </div>
       <Pagination page={page} setPage={setPage} totalPages={totalPages} />
     </>
