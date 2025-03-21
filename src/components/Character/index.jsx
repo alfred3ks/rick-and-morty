@@ -8,7 +8,7 @@ const Character = ({ character }) => {
       <img
         className="w-50 h-50 object-cover rounded-full shadow-lg mx-auto"
         src={image}
-        alt={`imagen de ${name}`}
+        alt={`image of ${name}`}
       />
       <p className="text-center py-1 text-sm">{origin.name}</p>
     </div>

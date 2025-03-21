@@ -3,6 +3,7 @@ import CharacterList from './pages/CharacterList';
 import Home from './pages/Home';
 import Layout from './components/Layout';
 import NotFound from './components/NotFount';
+import CharacterDetail from './pages/CharacterDetail';
 
 const App = () => {
   return (
@@ -11,9 +12,11 @@ const App = () => {
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/home" element={<Layout />}>
           <Route index element={<Home />} />
-        </Route>{' '}
-        <Route path="/characters" element={<Layout />}>
+        </Route>
+        <Route path="/character" element={<Layout />}>
           <Route index element={<CharacterList />} />
+          {/* Ruta dinamica */}
+          <Route path=":id" element={<CharacterDetail />} />
         </Route>
         {/* Ruta 404 con layout */}
         <Route path="*" element={<Navigate to="/404" />} />

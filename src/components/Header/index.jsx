@@ -25,7 +25,7 @@ const Header = () => {
             </li>
             <li>
               <NavLink
-                to={'/characters'}
+                to={'/character'}
                 // className="text-lg hover:text-green-400"
                 className={({ isActive }) =>
                   isActive
@@ -33,7 +33,7 @@ const Header = () => {
                     : 'text-lg hover:text-green-400'
                 }
               >
-                Characters
+                Character
               </NavLink>
             </li>
           </ul>

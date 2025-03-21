@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import Character from '../../components/Character';
 import Pagination from '../../components/Pagination';
 import Spinner from '../../components/Spinner';
+import { Link } from 'react-router';
 
 const CharacterList = () => {
   const [characters, setCharacters] = useState([]);
@@ -48,7 +49,9 @@ const CharacterList = () => {
       <div className="min-h-screen p-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 items-start">
         {characters.map((character) => (
           <div key={`character-${character.id}`}>
-            <Character character={character} />
+            <Link to={`/character/${character.id}`}>
+              <Character character={character} />
+            </Link>
           </div>
         ))}
       </div>
