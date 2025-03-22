@@ -2,20 +2,20 @@ import { useEffect, useState } from 'react';
 import Character from '../../components/Character';
 import Pagination from '../../components/Pagination';
 import Spinner from '../../components/Spinner';
-import { Link } from 'react-router';
+import { Link, useSearchParams } from 'react-router';
 
 const CharacterList = () => {
   const [characters, setCharacters] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [page, setPage] = useState(1);
-  // Para saber el total de paginas
   const [totalPages, setTotalPages] = useState(0);
+
+  const [searchParams, setSearchParams] = useSearchParams();
+  const page = parseInt(searchParams.get('page')) || 1;
 
   useEffect(() => {
     const fetchApiRick = async () => {
       try {
-        // hacemos la peticion a la API de rick and morty
         const response = await fetch(
           `https://rickandmortyapi.com/api/character?page=${page}`
         );
@@ -31,10 +31,10 @@ const CharacterList = () => {
         setLoading(false);
       }
     };
+    setLoading(true);
     fetchApiRick();
   }, [page]);
 
-  // cargamos el spinner
   if (loading) {
     return <Spinner />;
   }
@@ -43,9 +43,14 @@ const CharacterList = () => {
     return <div className="text-center text-red-500">Error: {error}</div>;
   }
 
+  // Nueva función para cambiar la página usando URL
+  const goToPage = (newPage) => {
+    setSearchParams({ page: newPage });
+  };
+
   return (
     <>
-      <Pagination page={page} setPage={setPage} totalPages={totalPages} />
+      <Pagination page={page} setPage={goToPage} totalPages={totalPages} />
       <div className="min-h-screen p-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 items-start">
         {characters.map((character) => (
           <div key={`character-${character.id}`}>
@@ -55,7 +60,7 @@ const CharacterList = () => {
           </div>
         ))}
       </div>
-      <Pagination page={page} setPage={setPage} totalPages={totalPages} />
+      <Pagination page={page} setPage={goToPage} totalPages={totalPages} />
     </>
   );
 };
