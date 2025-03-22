@@ -1,6 +1,6 @@
-const Pagination = ({ page, setPage, totalPages }) => {
+const Pagination = ({ page, goToPage, totalPages }) => {
   const handleChangePage = (newPage) => {
-    setPage(newPage);
+    goToPage(newPage);
   };
 
   return (

@@ -50,7 +50,7 @@ const CharacterList = () => {
 
   return (
     <>
-      <Pagination page={page} setPage={goToPage} totalPages={totalPages} />
+      <Pagination page={page} goToPage={goToPage} totalPages={totalPages} />
       <div className="min-h-screen p-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 items-start">
         {characters.map((character) => (
           <div key={`character-${character.id}`}>
