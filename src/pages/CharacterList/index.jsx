@@ -60,7 +60,7 @@ const CharacterList = () => {
           </div>
         ))}
       </div>
-      <Pagination page={page} setPage={goToPage} totalPages={totalPages} />
+      <Pagination page={page} goToPage={goToPage} totalPages={totalPages} />
     </>
   );
 };
