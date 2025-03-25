@@ -7,7 +7,7 @@ import './index.css';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter basename="/rick-and-morty">
+    <BrowserRouter basename="/rick-and-morty/">
       <App />
     </BrowserRouter>
   </StrictMode>

@@ -1,3 +1,5 @@
+import image from '../../../public/rick-and-morty-home.webp';
+
 const Home = () => {
   return (
     <div className="flex flex-col items-center justify-center text-center text-white">
@@ -11,7 +13,7 @@ const Home = () => {
         absurd situations.
       </p>
       <img
-        src="/rick-and-morty-home.webp"
+        src={image}
         alt="Rick and Morty"
         className="w-full max-w-xs sm:max-w-md md:max-w-lg lg:max-w-2xl rounded-lg shadow-lg mb-6"
       />
