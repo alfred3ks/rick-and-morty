@@ -9,8 +9,8 @@ const App = () => {
   return (
     <div className="bg-cyan-500 text-white">
       <Routes>
-        <Route path="/" element={<Navigate to="/home" />} />
-        <Route path="/home" element={<Layout />}>
+        {/* <Route path="/" element={<Navigate to="/rick-and-morty" />} /> */}
+        <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
         </Route>
         <Route path="/character" element={<Layout />}>

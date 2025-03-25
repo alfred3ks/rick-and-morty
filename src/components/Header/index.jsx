@@ -13,7 +13,7 @@ const Header = () => {
           <ul className="flex gap-4">
             <li>
               <NavLink
-                to={'/home'}
+                to={'/'}
                 className={({ isActive }) =>
                   isActive
                     ? 'border-b-2 border-red-200 text-lg pb-0.5' // Resaltado cuando está activo
